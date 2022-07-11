@@ -31,15 +31,27 @@ function onGalleryContainerClick(evt) {
     evt.preventDefault();
     const originalPicture = evt.target.dataset.source;
     const altPicture = evt.target.alt;
+   
     
    const instance = basicLightbox.create(`
     <img src="${originalPicture}" alt="${altPicture}" width="800" height="600">
 `)
     instance.show()
-    instance.close()
+   
+    addEventListener('keydown', onTargetKeydown);
+
+    
+
+function onTargetKeydown(evt) {
+      if (evt.key === 'Escape') {
+        instance.close()
+    }
+}
+    
 
    
 }
+
 
 
 
