@@ -5,6 +5,7 @@ console.log(galleryItems);
 const galleryContainer = document.querySelector('.gallery');
 const galleryMarkup = createGalleryCardsMarkup(galleryItems);
 galleryContainer.insertAdjacentHTML('beforeend', galleryMarkup);
+galleryContainer.addEventListener('click', onGalleryContainerClick);
 
 
 
@@ -26,7 +27,12 @@ function createGalleryCardsMarkup(pictures) {
     
 }
 
+function onGalleryContainerClick(evt) {
+    evt.preventDefault();
 
+  
+    console.log(evt.target.dataset);
+}
 
 
 
