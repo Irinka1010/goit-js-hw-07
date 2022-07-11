@@ -29,10 +29,22 @@ function createGalleryCardsMarkup(pictures) {
 
 function onGalleryContainerClick(evt) {
     evt.preventDefault();
+    const originalPicture = evt.target.dataset.source;
+    const altPicture = evt.target.alt;
+    
+   const instance = basicLightbox.create(`
+    <img src="${originalPicture}" alt="${altPicture}" width="800" height="600">
+`)
+    instance.show()
+    instance.close()
 
-  
-    console.log(evt.target.dataset);
+   
 }
+
+
+
+
+
 
 
 
