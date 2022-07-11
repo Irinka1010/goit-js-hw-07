@@ -8,6 +8,7 @@ galleryContainer.insertAdjacentHTML('beforeend', galleryMarkup);
 
 
 
+
 function createGalleryCardsMarkup(pictures) {
     return pictures.map(({ preview, original, description }) => {
         return `
@@ -22,4 +23,5 @@ function createGalleryCardsMarkup(pictures) {
         .join('');
     
 }
-console.log(galleryMarkup)
+
+
