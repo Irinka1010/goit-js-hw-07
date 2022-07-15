@@ -9,6 +9,8 @@ galleryContainer.addEventListener('click', onGalleryContainerClick);
 
 
 
+
+
 function createGalleryCardsMarkup(pictures) {
     return pictures.map(({ preview, original, description }) => {
         return `
@@ -31,22 +33,32 @@ function onGalleryContainerClick(evt) {
     evt.preventDefault();
     const originalPicture = evt.target.dataset.source;
     const altPicture = evt.target.alt;
-   
+  
     
    const instance = basicLightbox.create(`
     <img src="${originalPicture}" alt="${altPicture}" width="800" height="600">
-`)
-    instance.show()
-   
+ `)
+    instance.show()       
+    
     addEventListener('keydown', onTargetKeydown);
 
-    
-
-function onTargetKeydown(evt) {
+     function onTargetKeydown(evt) { 
       if (evt.key === 'Escape') {
-        instance.close()
+          instance.close();
+          
+     };
+    } 
+    
+  const divCllasElbasicLightbox = document.querySelector('.basicLightbox'); 
+
+    function onRemovesHearerModal() {
+        if (divEl.className === divEl.className.basicLightbox) {
+           
+            removeEventListener('keydown', onTargetKeydown);
+        };
+       
     }
-}
+
     
 
    
@@ -54,7 +66,7 @@ function onTargetKeydown(evt) {
 
 
 
-
+ 
 
 
 
