@@ -45,13 +45,3 @@ function onGalleryContainerClick(evt) {
         };      
     }              
 }
-
-
- 
-
-
-
-
-
-
-
