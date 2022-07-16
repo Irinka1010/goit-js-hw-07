@@ -24,7 +24,7 @@ function createGalleryCardsMarkup(pictures) {
         
     
 }
-new SimpleLightbox('.gallery a', {
+ const lightbox= new SimpleLightbox('.gallery a', {
      /* options */
     captions: true,
     captionsData: 'alt',
@@ -32,4 +32,3 @@ new SimpleLightbox('.gallery a', {
     captionPosition: 'bottom',
     captionSelector: 'img',
 });
-
