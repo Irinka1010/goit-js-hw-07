@@ -1,17 +1,9 @@
 import { galleryItems } from './gallery-items.js';
-// Change code below this line
 
-console.log(galleryItems);
 const galleryContainer = document.querySelector('.gallery');
 const galleryMarkup = createGalleryCardsMarkup(galleryItems);
 galleryContainer.insertAdjacentHTML('beforeend', galleryMarkup);
 galleryContainer.addEventListener('click', onGalleryContainerClick);
-
-
-
-
-
-
 
 function createGalleryCardsMarkup(pictures) {
     return pictures.map(({ preview, original, description }) => {
@@ -33,37 +25,25 @@ function createGalleryCardsMarkup(pictures) {
 
 function onGalleryContainerClick(evt) {
     evt.preventDefault();
+      if (!evt.target.classList.contains('gallery__image')) {
+    return;
+  }
     const originalPicture = evt.target.dataset.source;
     const altPicture = evt.target.alt;
-  
-    
+      
    const instance = basicLightbox.create(`
     <img src="${originalPicture}" alt="${altPicture}" width="800" height="600">
  `)
     instance.show()   
     
-
-    
-    function onRemovesHearerModal(evt) {
-       
-        if (instance.show) {
-          addEventListener('keydown', onTargetKeydown);
-        } else {
-            removeEventListener('keydown', onTargetKeydown);
-        }
-    }
-
-    
+   window.addEventListener('keydown', onTargetKeydown);        
      
     function onTargetKeydown(evt) {
         if (evt.key === 'Escape') {
             instance.close();
+            window.removeEventListener('keydown', onTargetKeydown);
         };      
-    } 
-    
-    onRemovesHearerModal(evt); 
-    
-       
+    }              
 }
 
 
